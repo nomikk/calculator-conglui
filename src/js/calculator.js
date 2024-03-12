@@ -139,18 +139,17 @@ export default class calculator {
     this.currentOperand = formattedResult;
     this.updateDisplay();
     this.reset();
-}
-       
-        if (this.isEqualPressedAgain) {
-            this.previousResult = this.currentOperand;
-            this.currentOperand = this.performSameCalculation();
-        }
 
-        if (isNaN(prev) || isNaN(current)) return;
-        this.currentOperand = this.checkForErrors(current, prev, operations);
-        this.previousOperation = this.operation;
-        this.operation = undefined;
-        this.previousOperand = '';
+    if (this.isEqualPressedAgain) {
+        this.previousResult = this.currentOperand;
+        this.currentOperand = this.performSameCalculation();
+    }
+
+    if (isNaN(prev) || isNaN(current)) return;
+    this.currentOperand = this.checkForErrors(current, prev, operations);
+    this.previousOperation = this.operation;
+    this.operation = undefined;
+    this.previousOperand = '';
     }
 
     /**
