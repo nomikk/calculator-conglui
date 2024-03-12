@@ -139,7 +139,7 @@ export default class calculator {
     this.currentOperand = formattedResult;
     this.updateDisplay();
     this.reset();
-              }
+}
        
         if (this.isEqualPressedAgain) {
             this.previousResult = this.currentOperand;
