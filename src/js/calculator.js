@@ -133,13 +133,11 @@ export default class calculator {
     * taken from operation variable.
     */
     compute() {
-        const prev = parseFloat(this.previousOperand);
-        const current = parseFloat(this.currentOperand);
-        const operations = {
-            '+': prev + current,
-            '-': prev - current,
-            '*': prev * current,
-            '/': prev / current
+    const operands = this.previousOperand.split('+');
+    const result = operands.reduce((acc, operand) => acc * (1 - parseFloat(operand) / 100), 1);
+    this.currentOperand = (result * 100).toFixed(2);
+    this.updateDisplay();
+    this.reset();
         }
         
         if (this.isEqualPressedAgain) {
