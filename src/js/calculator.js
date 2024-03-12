@@ -133,8 +133,8 @@ export default class calculator {
     * taken from operation variable.
     */
     compute() {
-    const operands = this.previousOperand.split('+');
-    const result = operands.reduce((acc, operand) => acc * (1 - parseFloat(operand) / 100), 1);
+    const operands = this.previousOperand.split('+').map(operand => parseFloat(operand));
+    const result = 1 - operands.reduce((acc, operand) => acc * (1 - operand / 100), 1);
     const formattedResult = (result * 100).toFixed(2) + "%";
     this.currentOperand = formattedResult;
     this.updateDisplay();
