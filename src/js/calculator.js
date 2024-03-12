@@ -135,11 +135,12 @@ export default class calculator {
     compute() {
     const operands = this.previousOperand.split('+');
     const result = operands.reduce((acc, operand) => acc * (1 - parseFloat(operand) / 100), 1);
-    this.currentOperand = (result * 100).toFixed(2);
+    const formattedResult = (result * 100).toFixed(2) + "%";
+    this.currentOperand = formattedResult;
     this.updateDisplay();
     this.reset();
-        }
-        
+              }
+       
         if (this.isEqualPressedAgain) {
             this.previousResult = this.currentOperand;
             this.currentOperand = this.performSameCalculation();
